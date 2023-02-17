@@ -1,4 +1,5 @@
-import 'package:assignment/views/animations_demo.dart';
+import 'package:assignment/views/chained_animation.dart';
+import 'package:assignment/views/rotate_animate.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,6 +12,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: CustomAnimation());
+    return const MaterialApp(home: ChainedAnimation());
   }
 }
