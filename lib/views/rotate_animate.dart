@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'dart:math' show pi;
 
-class CustomAnimation extends StatefulWidget {
-  const CustomAnimation({super.key});
+class RotateAnimate extends StatefulWidget {
+  const RotateAnimate({super.key});
 
   @override
-  State<CustomAnimation> createState() => _CustomAnimationState();
+  State<RotateAnimate> createState() => _RotateAnimateState();
 }
 
-class _CustomAnimationState extends State<CustomAnimation>
+class _RotateAnimateState extends State<RotateAnimate>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
@@ -18,7 +18,7 @@ class _CustomAnimationState extends State<CustomAnimation>
     super.initState();
     _controller =
         AnimationController(vsync: this, duration: Duration(seconds: 2));
-    _animation = Tween<double>(begin: 0.0, end: 2 * pi).animate(_controller);
+    _animation = Tween<double>(begin: 0.0, end: pi * 2).animate(_controller);
     _controller.repeat();
   }
 
@@ -30,16 +30,9 @@ class _CustomAnimationState extends State<CustomAnimation>
         animation: _controller,
         builder: (context, child) {
           return Transform(
-            alignment: Alignment.center,
-            transform: Matrix4.identity()..rotateZ(_animation.value),
-            child: Container(
-              height: 100,
-              width: 100,
-              decoration: const BoxDecoration(
-                color: Colors.red,
-              ),
-            ),
-          );
+              alignment: Alignment.center,
+              transform: Matrix4.identity()..rotateZ(_animation.value),
+              child: Text('Animations'));
         },
       )),
     );
