@@ -1,4 +1,4 @@
-# assignment
+# Animate Flutter
 
 A new Flutter project.
 
