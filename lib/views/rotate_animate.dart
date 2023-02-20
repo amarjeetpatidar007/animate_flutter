@@ -13,13 +13,20 @@ class _RotateAnimateState extends State<RotateAnimate>
   late AnimationController _controller;
   late Animation<double> _animation;
 
+
   @override
   void initState() {
     super.initState();
     _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 2));
+        AnimationController(vsync: this, duration: const Duration(seconds: 2));
     _animation = Tween<double>(begin: 0.0, end: pi * 2).animate(_controller);
     _controller.repeat();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
