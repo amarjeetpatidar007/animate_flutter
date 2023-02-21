@@ -75,7 +75,7 @@ class _ChainedAnimationState extends State<ChainedAnimation>
         CurvedAnimation(
             parent: _CounterClockAnimationcontroller, curve: Curves.bounceOut));
 
-     //Flip Animation       
+    //Flip Animation
 
     _flipAnimationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 1));
