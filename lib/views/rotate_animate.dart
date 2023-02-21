@@ -39,7 +39,7 @@ class _RotateAnimateState extends State<RotateAnimate>
           return Transform(
               alignment: Alignment.center,
               transform: Matrix4.identity()..rotateZ(_animation.value),
-              child: Text('Animations'));
+              child: const Text('Animations'));
         },
       )),
     );
