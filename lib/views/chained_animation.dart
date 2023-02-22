@@ -126,59 +126,55 @@ class _ChainedAnimationState extends State<ChainedAnimation>
       ..reset()
       ..forward.delayed(const Duration(seconds: 1));
 
-    return Scaffold(
-        body: Center(
-      child: AnimatedBuilder(
-        animation: _CounterClockAnimationcontroller,
-        builder: (context, child) {
-          return Transform(
-            alignment: Alignment.center,
-            transform: Matrix4.identity()
-              ..rotateZ(_CounterClockanimation.value),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                AnimatedBuilder(
-                  animation: _flipAnimationController,
-                  builder: (context, child) {
-                    return Transform(
-                      alignment: Alignment.centerRight,
-                      transform: Matrix4.identity()
-                        ..rotateY(_flipAnimation.value),
-                      child: ClipPath(
-                        clipper: SemiCircleClipper(side: CircleSide.part1),
-                        child: Container(
-                          width: 100,
-                          height: 100,
-                          color: Colors.red,
-                        ),
+    return AnimatedBuilder(
+      animation: _CounterClockAnimationcontroller,
+      builder: (context, child) {
+        return Transform(
+          alignment: Alignment.center,
+          transform: Matrix4.identity()..rotateZ(_CounterClockanimation.value),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AnimatedBuilder(
+                animation: _flipAnimationController,
+                builder: (context, child) {
+                  return Transform(
+                    alignment: Alignment.centerRight,
+                    transform: Matrix4.identity()
+                      ..rotateY(_flipAnimation.value),
+                    child: ClipPath(
+                      clipper: SemiCircleClipper(side: CircleSide.part1),
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        color: Colors.red,
                       ),
-                    );
-                  },
-                ),
-                AnimatedBuilder(
-                  animation: _flipAnimation,
-                  builder: (context, child) {
-                    return Transform(
-                      alignment: Alignment.centerLeft,
-                      transform: Matrix4.identity()
-                        ..rotateY(_flipAnimation.value),
-                      child: ClipPath(
-                        clipper: SemiCircleClipper(side: CircleSide.part2),
-                        child: Container(
-                          width: 100,
-                          height: 100,
-                          color: Colors.pink,
-                        ),
+                    ),
+                  );
+                },
+              ),
+              AnimatedBuilder(
+                animation: _flipAnimation,
+                builder: (context, child) {
+                  return Transform(
+                    alignment: Alignment.centerLeft,
+                    transform: Matrix4.identity()
+                      ..rotateY(_flipAnimation.value),
+                    child: ClipPath(
+                      clipper: SemiCircleClipper(side: CircleSide.part2),
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        color: Colors.orange,
                       ),
-                    );
-                  },
-                ),
-              ],
-            ),
-          );
-        },
-      ),
-    ));
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

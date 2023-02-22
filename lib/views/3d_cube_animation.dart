@@ -54,83 +54,79 @@ class _CubeAnimateState extends State<CubeAnimate>
       ..reset()
       ..repeat();
 
-    return Scaffold(
-      body: SafeArea(
-          child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBox(
-            height: 200,
-            width: double.infinity,
-          ),
-          AnimatedBuilder(
-            animation:
-                Listenable.merge([xController, yController, zController]),
-            builder: (context, child) {
-              return Transform(
-                alignment: Alignment.center,
-                transform: Matrix4.identity()
-                  ..rotateX(animation.evaluate(xController))
-                  ..rotateY(animation.evaluate(yController))
-                  ..rotateZ(animation.evaluate(zController)),
-                child: Stack(
-                  children: [
-                    //back side
-                    Transform(
-                      alignment: Alignment.center,
-                      transform: Matrix4.translation(Vector3(0, 0, -contSize)),
-                      child: Container(
-                        height: contSize,
-                        width: contSize,
-                        color: Colors.red,
-                      ),
-                    ),
-//                  Left side
-                    Transform(
-                      alignment: Alignment.centerLeft,
-                      transform: Matrix4.identity()..rotateY(pi / 2),
-                      child: Container(
-                        height: contSize,
-                        width: contSize,
-                        color: Colors.orange,
-                      ),
-                    ),
-
-                    //Right side
-                    Transform(
-                      alignment: Alignment.centerRight,
-                      transform: Matrix4.identity()..rotateY(-pi / 2),
-                      child: Container(
-                        height: contSize,
-                        width: contSize,
-                        color: Colors.green,
-                      ),
-                    ),
-
-                    //front side
-                    Container(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const SizedBox(
+          height: 40,
+          width: double.infinity,
+        ),
+        AnimatedBuilder(
+          animation: Listenable.merge([xController, yController, zController]),
+          builder: (context, child) {
+            return Transform(
+              alignment: Alignment.center,
+              transform: Matrix4.identity()
+                ..rotateX(animation.evaluate(xController))
+                ..rotateY(animation.evaluate(yController))
+                ..rotateZ(animation.evaluate(zController)),
+              child: Stack(
+                children: [
+                  //back side
+                  Transform(
+                    alignment: Alignment.center,
+                    transform: Matrix4.translation(Vector3(0, 0, -contSize)),
+                    child: Container(
                       height: contSize,
                       width: contSize,
-                      color: Colors.lightBlue,
+                      color: Colors.red,
                     ),
+                  ),
+//                  Left side
+                  Transform(
+                    alignment: Alignment.centerLeft,
+                    transform: Matrix4.identity()..rotateY(pi / 2),
+                    child: Container(
+                      height: contSize,
+                      width: contSize,
+                      color: Colors.orange,
+                    ),
+                  ),
 
-                    //Bottom Side
-                    Transform(
-                      alignment: Alignment.bottomCenter,
-                      transform: Matrix4.identity()..rotateX(pi / 2),
-                      child: Container(
-                        height: contSize,
-                        width: contSize,
-                        color: Colors.purple,
-                      ),
+                  //Right side
+                  Transform(
+                    alignment: Alignment.centerRight,
+                    transform: Matrix4.identity()..rotateY(-pi / 2),
+                    child: Container(
+                      height: contSize,
+                      width: contSize,
+                      color: Colors.green,
                     ),
-                  ],
-                ),
-              );
-            },
-          ),
-        ],
-      )),
+                  ),
+
+                  //front side
+                  Container(
+                    height: contSize,
+                    width: contSize,
+                    color: Colors.lightBlue,
+                  ),
+
+                  //Bottom Side
+                  Transform(
+                    alignment: Alignment.bottomCenter,
+                    transform: Matrix4.identity()..rotateX(pi / 2),
+                    child: Container(
+                      height: contSize,
+                      width: contSize,
+                      color: Colors.purple,
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
+      ],
     );
   }
 }
