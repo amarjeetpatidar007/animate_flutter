@@ -1,16 +1,4 @@
 # Animate Flutter
 
-A new Flutter project.
+![flutter_animations_example](https://user-images.githubusercontent.com/81079724/220535011-0e61a76e-24c4-43f1-9bb6-e8d03cd0f17b.gif)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
