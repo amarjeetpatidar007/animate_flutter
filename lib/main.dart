@@ -1,8 +1,5 @@
-import 'package:assignment/views/3d_cube_animation.dart';
-import 'package:assignment/views/chained_animation.dart';
-import 'package:assignment/views/home.dart';
-import 'package:assignment/views/implicit_animated_container.dart';
-import 'package:assignment/views/rotate_animate.dart';
+
+import 'package:assignment/views/implicit%20animation/tween_animation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,6 +11,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: ImplicitAnimatedContainer());
+    return const MaterialApp(home: TweenAnimationView());
   }
 }
