@@ -1,5 +1,6 @@
 import 'package:assignment/views/3d_cube_animation.dart';
 import 'package:assignment/views/chained_animation.dart';
+import 'package:assignment/views/polygon_custom_painter.dart';
 import 'package:assignment/views/rotate_animate.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +37,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 50,
+                height: 20,
                 width: 10,
               ),
               Stack(
@@ -50,7 +51,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 50,
+                height: 20,
                 width: 10,
               ),
               Stack(
@@ -62,7 +63,24 @@ class HomePage extends StatelessWidget {
                     style: _textStyle,
                   ),
                 ],
-              )
+              ),
+              const SizedBox(
+                height: 80,
+                width: 10,
+              ),
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.2,
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      child: PolygonAnimation()),
+                ],
+              ),
+              Text(
+                'Polygon Animation',
+                style: _textStyle,
+              ),
             ]),
       ),
     );
